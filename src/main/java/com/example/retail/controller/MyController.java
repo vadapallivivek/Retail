@@ -3,7 +3,6 @@ package com.example.retail.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,12 +16,7 @@ public class MyController {
 	
 	@Autowired
 	RetailServices retailServices;
-	
-	@GetMapping("/getallproduct")
-	public List<Product> getproducts(){
-		return retailServices.findAllProduct();
 		
-	}
 	@GetMapping("/product/name/{prodname}")
 	public Product getproductByName(@PathVariable(value="prodname") String prodname){
 		return retailServices.findprodbyname(prodname);
@@ -37,6 +31,7 @@ public class MyController {
 	public List<Product> getProdByCategory(@PathVariable(value="category") String category){
 		return retailServices.findProdByCategory(category);
 	}
+	
 	@GetMapping("product/price")
 	public List<Product> getProdByPrice(@RequestParam(value="min")Long min, @RequestParam(value="max") Long max){
 		return retailServices.findProdByPrice(min,max);
