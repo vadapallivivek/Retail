@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.example.retail.services.RetailServices;
+
 @Entity
 @Table(name="product")
 public class Product {
@@ -31,7 +33,7 @@ public class Product {
 		this.userId = userId;
 	}	
 	
-	public Product() {
+	public Product(Product param, RetailServices retailServices) {
 		super();
 		// TODO Auto-generated constructor stub
 	}
